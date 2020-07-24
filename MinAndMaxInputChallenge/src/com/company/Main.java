@@ -17,7 +17,7 @@ public class Main {
             System.out.println("Enter number:");
             boolean isNextInt = scanner.hasNextInt();
 
-            if (scanner.hasNextInt()){
+            if (isNextInt){
                 int number = scanner.nextInt();
 
                 if (first){
