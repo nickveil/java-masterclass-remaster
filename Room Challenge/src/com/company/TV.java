@@ -17,8 +17,8 @@ public class TV {
         return furniture;
     }
 
-    public String whatToWatch(){
+    public void whatToWatch(){
         String program = getStreamingService();
-        return "I'll watch something on " + program + ".";
+        System.out.println("I'll watch something on " + program + ".");
     }
 }

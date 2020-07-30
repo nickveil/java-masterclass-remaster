@@ -12,10 +12,12 @@ public class Basement {
     }
 
     public void haveADrink(){
+        System.out.println("Making a drink.");
         bar.whatWillYouHave(bar.getDrink(), bar.isIce());
     }
 
     public void getTV(){
+        System.out.println("Turning on the tv.");
         tv.whatToWatch();
     }
 
