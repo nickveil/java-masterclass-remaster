@@ -8,7 +8,46 @@ public class Hamburger {
     private boolean isOnion;
     private boolean isMayo;
 
+    public double getBunPrice(){
+        if (this.bun.toLowerCase() !="plain"){
+            return 1.00;
+        } else {
+            return 0.00;
+        }
 
+    }
+
+    public double getMeatPrice(){
+        if (this.bun.toLowerCase() !="beef"){
+            return 3.00;
+        } else {
+            return 2.00;
+        }
+    }
+
+    public double getAdditionPrice(){
+        double additionPrice = 0;
+        if (this.isBacon){
+            additionPrice += 1.00;
+        }
+        if(this.isCheese){
+            additionPrice += .50;
+        }
+        if(this.isMayo){
+            additionPrice += .10;
+        }
+        if(this.isOnion){
+            additionPrice += .40;
+        }
+        return additionPrice;
+    }
+
+    public void getTotalPrice (){
+        System.out.println("Bun: " + this.bun + " = $" + String.format("%.2f", getBunPrice()));
+        System.out.println("Meat: " + this.meat + " = $" + String.format("%.2f",getMeatPrice()));
+        System.out.println("Additions" +  " = $" + String.format("%.2f",getAdditionPrice()));
+        System.out.println("Total cost" + "= $" + String.format("%.2f",(getBunPrice()+getMeatPrice()+getAdditionPrice())));
+    }
     public String getBun() {
         return bun;
     }
@@ -42,5 +81,21 @@ public class Hamburger {
         this.isMayo = isMayo;
 
 
+    }
+
+    private void setBacon(boolean bacon) {
+        isBacon = bacon;
+    }
+
+    private void setCheese(boolean cheese) {
+        isCheese = cheese;
+    }
+
+    private void setOnion(boolean onion) {
+        isOnion = onion;
+    }
+
+    private void setMayo(boolean mayo) {
+        isMayo = mayo;
     }
 }
