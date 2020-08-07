@@ -21,7 +21,7 @@ public class Main {
         db.itemizeHamburger();
         db.addHamburgerAddition3("should not happen " , 3.45);
         db.itemizeHamburger();
-        
+
     }
 
 }
