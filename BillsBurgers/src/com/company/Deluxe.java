@@ -1,27 +1,26 @@
 package com.company;
 
 public class Deluxe extends Hamburger {
-    private String chips;
-    private String drink;
-
-    public String getChips() {
-        return chips;
-    }
-
-    public String getDrink() {
-        return drink;
-    }
-
-    public Deluxe(String chips, String drink) {
-        super("Plain", "Beef", false, false, false, false);
-        this.chips = chips;
-        this.drink = drink;
+    public Deluxe() {
+        super("Deluxe", "Plain", "Beef and Bacon", 4.57);
+        super.addHamburgerAddition1("Chips", 2.54);
+        super.addHamburgerAddition2("Cola", 1.23);
     }
 
     @Override
-    public void getTotalPrice() {
-
-        System.out.println("Chips: " + this.chips + " = " +thi);
-        super.getTotalPrice();
+    public void addHamburgerAddition1(String name, double price) {
+        System.out.println("Cannot add additional items to a deluxe burger");
     }
+
+    @Override
+    public void addHamburgerAddition2(String name, double price) {
+        System.out.println("Cannot add additional items to a deluxe burger");    }
+
+    @Override
+    public void addHamburgerAddition3(String name, double price) {
+        System.out.println("Cannot add additional items to a deluxe burger");    }
+
+    @Override
+    public void addHamburgerAddition4(String name, double price) {
+        System.out.println("Cannot add additional items to a deluxe burger");    }
 }
