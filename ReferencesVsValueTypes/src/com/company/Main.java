@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         //value type
-        
+
         int myIntValue = 10;
         int anotherIntValue = myIntValue;
 
