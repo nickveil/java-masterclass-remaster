@@ -12,7 +12,7 @@ public class Main {
         int choice = 0;
 
         while (!quit){
-            System.out.println("Enter you choice" );
+            System.out.println("Enter your choice" );
             choice = scanner.nextInt();
             scanner.nextLine();
 
@@ -34,6 +34,7 @@ public class Main {
                     break;
                 case 5:
                     searchForItem();
+                    break;
                 case 6:
                     quit = true;
                     break;
@@ -77,7 +78,7 @@ public class Main {
         System.out.print("Item to search for: ");
         String searchItem = scanner.nextLine();
         if(groceryList.findItem(searchItem) != null) {
-            System.out.println("Found " + searchItem + " in  our grocery list");
+            System.out.println("Found " + searchItem + " in your grocery list");
         } else {
             System.out.println(searchItem + " is not in the shopping list");
         }
