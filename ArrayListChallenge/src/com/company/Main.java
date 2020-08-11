@@ -13,6 +13,7 @@ public class Main {
         while (!quit){
             System.out.println("Please make your selection. Enter 0 for help with choices.");
             choice = scanner.nextInt();
+            scanner.nextLine();
 
             switch (choice){
                 case 0:
@@ -55,11 +56,12 @@ public class Main {
     }
 
     public static void updateContact(){
-        mobilePhone.printContactList();
-        System.out.println("Please select the number of the contact to update: ");
-        int contactNumber = scanner.nextInt();
+//        mobilePhone.printContactList();
+        System.out.println("Please select the name of the contact to update: ");
+        String contact = scanner.nextLine();
         System.out.println("Please enter replacement name: ");
-        mobilePhone.updateContact(contactNumber,scanner.nextLine());
+        String replacement = scanner.nextLine();
+        mobilePhone.updateContact(contact,replacement);
 
         System.out.println("Your contact list has been updated:");
         mobilePhone.printContactList();
@@ -67,15 +69,10 @@ public class Main {
     }
     public static void removeContact(){
         mobilePhone.printContactList();
-        System.out.println("Please enter the number of the contact you wish to remove: ");
-        int contactNumber = scanner.nextInt();
-        if (mobilePhone.onFile(contactNumber)) {
-            mobilePhone.removeContact(scanner.nextInt());
-            System.out.println("The contact selected has been removed.");
-            mobilePhone.printContactList();
-        }else {
-            System.out.println("Sorry, that contact number is not in the list.");
-        }
+        System.out.println("Please enter the name of the contact you wish to remove: ");
+        String contact = scanner.nextLine();
+        mobilePhone.removeContact(contact);
+
 
     }
 }

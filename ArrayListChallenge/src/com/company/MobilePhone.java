@@ -17,16 +17,20 @@ public class MobilePhone {
 
     }
 
-    public void updateContact (int number, String newContact){
-        mobilePhone.set(number,newContact);
-        System.out.println("Contact number " + (number+1) + " has been updated to: " + newContact );
+    public void updateContact (String contact, String newContact){
+        int contactNumber = findContact(contact);
+        mobilePhone.set(contactNumber,newContact);
+        System.out.println("Contact " + contact + " has been updated to: " + newContact );
     }
 
-    public void removeContact (int number){
-        int numberCache = number+1;
-        mobilePhone.remove(number);
-        System.out.println("Contact number " + numberCache + " has been removed");
+    public void removeContact (String contact){
+        mobilePhone.remove(contact);
+        System.out.println("Contact " + contact + " has been removed");
 
+    }
+
+    private int findContact (String searchContact){
+        return mobilePhone.indexOf(searchContact);
     }
 
     public boolean onFile (int number){
