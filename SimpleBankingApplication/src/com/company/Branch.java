@@ -3,26 +3,43 @@ package com.company;
 import java.util.ArrayList;
 
 public class Branch {
-    private ArrayList<String> customers = new ArrayList<String>();
     private String branchName;
+    private ArrayList<Customer> customers;
 
-    public Branch(ArrayList<String> customers, String branchName) {
-        this.customers = customers;
+    public Branch(String branchName) {
         this.branchName = branchName;
-    }
-
-    public ArrayList<String> getCustomers() {
-        return customers;
+        this.customers = new ArrayList<Customer>();
     }
 
     public String getBranchName() {
         return branchName;
     }
 
-    public void addCustomer( String customerName, ArrayList<Double> initialDeposit, String branch){
-        Customer newCustomer = new Customer(customerName, initialDeposit, branch);
-        customers.add(customerName);
+    public boolean newCustomer(String customerName, double initialAmount){
+        if (findCustomer(customerName) == null){
+            this.customers.add(new Customer(customerName,initialAmount));
+            return true;
+        }
+        return false;
+    }
 
+    public boolean addCustomerTransaction(String customerName, double amount){
+        Customer existingCustomer = findCustomer(customerName);
+        if (existingCustomer != null){
+            existingCustomer.addTransaction(amount);
+            return true;
+        }
+        return false;
+    }
+
+    private Customer findCustomer(String customerName){
+        for (int i=0; i<customers.size(); i++){
+            Customer checkedCustomer = this.customers.get(i);
+            if (checkedCustomer.getCustomerName().equals(customerName)){
+                return checkedCustomer;
+            }
+        }
+        return null;
     }
 
 }
