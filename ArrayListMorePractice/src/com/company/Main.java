@@ -46,7 +46,77 @@ public class Main {
     public static void printActions(){
         System.out.println("Select from the following option:");
         System.out.println( "0  - to exit Employee Roster\n" +
-                            "1  - ");
+                            "1  - to print Employee Roster\n" +
+                            "2  - to add Employee\n"+
+                            "3  - to update Employee\n"+
+                            "4  - to remove employee\n"+
+                            "5  - to search for an employee" +
+                            "6  - to print instructions");
+    }
+
+    public static void  addEmployee(){
+        System.out.print("Enter the employee name:");
+        String employee = scanner.nextLine();
+        System.out.print("Enter the employee location:");
+        String location = scanner.nextLine();
+
+        Employee newEmployee = Employee.createEmployee(employee,location);
+        if (employeeRoster.addEmployee(newEmployee)){
+            System.out.println("Employee: " + employee + " at location " + location + " has been added.");
+        } else {
+            System.out.println("Employee " + employee + " is already on file.");
+        }
+
+    }
+
+    public static void updateEmployee(){
+        System.out.println("Enter the employee name you wish to change:");
+        String name = scanner.nextLine();
+        Employee existingEmployee = employeeRoster.findEmployee(name);
+        if (existingEmployee == null){
+            System.out.println("Employee not found.");
+            return;
+        }
+        System.out.print("Enter employee name update: " );
+        String newName = scanner.nextLine();
+        System.out.println("Enter employee location update: ");
+        String newLocation = scanner.nextLine();
+
+        Employee newEmployee = Employee.createEmployee(newName,newLocation);
+
+        if (employeeRoster.updateEmployee(existingEmployee, newEmployee)){
+            System.out.println("Employee update successful.");
+        } else {
+            System.out.println("Error updating employee.");
+        }
+    }
+
+    public static void removeEmployee(){
+        System.out.println("Enter the employee name you wish to remove:");
+        String name = scanner.nextLine();
+        Employee existingEmployee = employeeRoster.findEmployee(name);
+        if (existingEmployee == null){
+            System.out.println("Employee not found.");
+            return;
+        }
+
+        if (employeeRoster.removeEmployee(existingEmployee)){
+            System.out.println(name + " was successfully removed.");
+        } else {
+            System.out.println("Error. Employee not removed.");
+        }
+    }
+
+    public static void findEmployee(){
+        System.out.printf("Enter employee name to search: ");
+        String name = scanner.nextLine();
+        Employee existingEmployee = employeeRoster.findEmployee(name);
+        if (existingEmployee == null){
+            System.out.println("Cannot find employee " + name);
+            return;
+        }
+
+        System.out.println("Employee " + existingEmployee.getName()+ " is located in the " + existingEmployee.getLocation() + " office.");
     }
 }
 
