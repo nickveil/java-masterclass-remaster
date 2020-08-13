@@ -25,6 +25,6 @@ public class Main {
 
         bank.listCustomers("Old Chenny",true);
         bank.listCustomers("Stacy Lane",false);
-        
+
     }
 }
